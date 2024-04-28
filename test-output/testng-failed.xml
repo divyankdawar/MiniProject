@@ -6,6 +6,7 @@
       <class name="myTest.Program1">
         <methods>
           <include name="setUp"/>
+          <include name="switchTabExample"/>
         </methods>
       </class> <!-- myTest.Program1 -->
     </classes>
