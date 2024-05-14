@@ -2,19 +2,19 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-28T14:09:58 EDT" name="Suite" finished-at="2024-04-28T14:10:11 EDT" duration-ms="12262">
+  <suite started-at="2024-05-13T20:48:10 EDT" name="Suite" finished-at="2024-05-13T20:48:33 EDT" duration-ms="23493">
     <groups>
     </groups>
-    <test started-at="2024-04-28T14:09:58 EDT" name="SingelTestCase" finished-at="2024-04-28T14:10:11 EDT" duration-ms="12262">
+    <test started-at="2024-05-13T20:48:10 EDT" name="SingelTestCase" finished-at="2024-05-13T20:48:33 EDT" duration-ms="23493">
       <class name="myTest.Program1">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:myTest.Program1@363042d7]" started-at="2024-04-28T14:09:58 EDT" name="setUp" finished-at="2024-04-28T14:10:06 EDT" duration-ms="7814" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myTest.Program1@614df0a4]" started-at="2024-05-13T20:48:10 EDT" name="setUp" finished-at="2024-05-13T20:48:29 EDT" duration-ms="18956" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="switchTabExample()[pri:0, instance:myTest.Program1@363042d7]" started-at="2024-04-28T14:10:06 EDT" name="switchTabExample" finished-at="2024-04-28T14:10:11 EDT" duration-ms="4369" status="PASS">
+        <test-method signature="SwitchToAlertExample()[pri:0, instance:myTest.Program1@614df0a4]" started-at="2024-05-13T20:48:29 EDT" name="SwitchToAlertExample" finished-at="2024-05-13T20:48:33 EDT" duration-ms="4468" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- switchTabExample -->
+        </test-method> <!-- SwitchToAlertExample -->
       </class> <!-- myTest.Program1 -->
     </test> <!-- SingelTestCase -->
   </suite> <!-- Suite -->
