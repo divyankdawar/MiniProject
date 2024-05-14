@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -121,5 +122,28 @@ public class Program1 {
 		js.executeScript("window.scrollTo(0, " + (pageHeight / 4) + ")");
 		System.out.println(contactInfo.getText());
 	}
+	
+	@Test
+	public void SwitchToAlertExample() throws InterruptedException {
+		
+		driver.findElement(By.cssSelector("input#name.inputs")).sendKeys("Divyank Dawar");
+		// Click on the regular alert
+		driver.findElement(By.cssSelector("input#alertbtn.btn-style")).click();
+		Alert alert = driver.switchTo().alert();
+		String alertText = alert.getText();
+		System.out.println("Alert text: " + alertText);
+		alert.accept();
+	
+		// How to click the Confirm button 
+		WebElement confirmButton = driver.findElement(By.id("confirmbtn"));
+        confirmButton.click();
+        Alert confirmalert = driver.switchTo().alert();
+        Thread.sleep(4000);
+        confirmalert.dismiss();
+      
+		
+	}
+	
+	
 
 }

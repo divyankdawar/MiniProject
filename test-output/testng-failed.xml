@@ -5,7 +5,9 @@
     <classes>
       <class name="myTest.Program1">
         <methods>
+          <include name="radioButton"/>
           <include name="setUp"/>
+          <include name="suggestionClass"/>
           <include name="switchTabExample"/>
         </methods>
       </class> <!-- myTest.Program1 -->
