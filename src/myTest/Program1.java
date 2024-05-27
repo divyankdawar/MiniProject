@@ -188,6 +188,7 @@ public class Program1 {
 			WebElement element = driver.findElement(By.xpath(colBeforeXpath+i+colAfterXpath));
 			String colText = element.getText();
 			System.out.println(colText);
+			System.out.println("Learning git using CMD");
 		}
 
 	}
