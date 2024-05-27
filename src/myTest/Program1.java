@@ -20,6 +20,8 @@ import org.testng.annotations.Test;
 public class Program1 {
 
 	WebDriver driver = new ChromeDriver();
+
+
 	@BeforeMethod
 	public void setUp()
 	{
@@ -95,8 +97,8 @@ public class Program1 {
 		// driver.switchTo().defaultContent(); This is used to switch to the default content
 
 	}
-	 
-	
+
+
 	//Switching Tab Example 
 	@Test
 	public void switchTabExample() {
@@ -122,10 +124,10 @@ public class Program1 {
 		js.executeScript("window.scrollTo(0, " + (pageHeight / 4) + ")");
 		System.out.println(contactInfo.getText());
 	}
-	
+
 	@Test
 	public void SwitchToAlertExample() throws InterruptedException {
-		
+
 		driver.findElement(By.cssSelector("input#name.inputs")).sendKeys("Divyank Dawar");
 		// Click on the regular alert
 		driver.findElement(By.cssSelector("input#alertbtn.btn-style")).click();
@@ -133,17 +135,60 @@ public class Program1 {
 		String alertText = alert.getText();
 		System.out.println("Alert text: " + alertText);
 		alert.accept();
-	
+
 		// How to click the Confirm button 
 		WebElement confirmButton = driver.findElement(By.id("confirmbtn"));
-        confirmButton.click();
-        Alert confirmalert = driver.switchTo().alert();
-        Thread.sleep(4000);
-        confirmalert.dismiss();
-      
-		
-	}
-	
-	
+		confirmButton.click();
+		Alert confirmalert = driver.switchTo().alert();
+		Thread.sleep(4000);
+		confirmalert.dismiss();
 
+
+	}
+	 
+	@Test
+	public void webTable() { 
+
+		// Whenever you have to work with webtables you have to find the patters
+		// Td means column and Tr means row
+		List<WebElement> rows = driver.findElements(By.xpath("//table[@id='product']/tbody/tr"));
+		int rowCount = rows.size();
+
+		System.out.println("Total rows in web table: " + rowCount);
+
+		String beforeXpath = "//*[@id=\"product\"]/tbody/tr[";
+		String afterXpath =  "]/td[2]";
+
+		for(int i=2;i<=rowCount; i++) {
+			String actualXpath = beforeXpath+i+afterXpath;
+			WebElement element = driver.findElement(By.xpath(actualXpath));
+			System.out.println(element.getText());
+			if(element.getText().equals("Master Selenium Automation in simple Python Language")) {
+				System.out.println("company name : " + element.getText() + "is found" + "at position: " + (i-1));
+
+				break;			
+
+			}
+			//*[@id="product"]/tbody/tr[5]/td[2]
+			//*[@id="product"]/tbody/tr[4]/td[2]
+			//*[@id="product"]/tbody/tr[1]/th[1]
+		}
+
+		//Handle Web tables column 
+
+		String colBeforeXpath = "//*[@id='product']/tbody/tr[1]/th[";
+		String colAfterXpath = "]";
+
+		List<WebElement> colums = driver.findElements(By.xpath("//*[@id='product']/tbody/tr[1]/th"));
+		int colCount = colums.size();
+		System.out.println("Total number of columns are : " + colCount);
+
+		System.out.println("Column values are: " );
+		for(int i = 1;i<=colCount;i++) {
+			WebElement element = driver.findElement(By.xpath(colBeforeXpath+i+colAfterXpath));
+			String colText = element.getText();
+			System.out.println(colText);
+		}
+
+	}
 }
