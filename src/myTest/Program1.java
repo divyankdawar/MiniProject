@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,6 +21,7 @@ import org.testng.annotations.Test;
 public class Program1 {
 
 	WebDriver driver = new ChromeDriver();
+	
 
 
 	@BeforeMethod
@@ -27,9 +29,10 @@ public class Program1 {
 	{
 		System.setProperty("webdriver.chrome.driver","\"E:\\Canada Preparation\\Chrome & Gecko Driver\\chromedriver_win32\\chromedriver.exe");
 		String baseUrl = "https://rahulshettyacademy.com/AutomationPractice/";
-
+        
 		driver.get(baseUrl);
 		driver.manage().window().maximize();
+		
 
 	}
 	
@@ -145,7 +148,7 @@ public class Program1 {
 
 
 	}
-	 
+
 	@Test
 	public void webTable() { 
 
@@ -192,4 +195,48 @@ public class Program1 {
 		}
 
 	}
+
+
+	@Test
+
+	public void mouseHover() throws InterruptedException {
+
+
+        Actions actions = new Actions(driver);
+
+        // Find the Mouse Hover button using its locator
+        WebElement mouseHoverButton = driver.findElement(By.id("mousehover"));
+
+        // Perform a mouse hover action on the Mouse Hover button
+        actions.moveToElement(mouseHoverButton).perform();
+
+        // Perform the top Link button 
+        WebElement topLink = driver.findElement(By.xpath("//a[text()='Top']"));
+		topLink.click();
+
+		actions.moveToElement(mouseHoverButton).perform();
+
+        // Find the Reload button using its locator (assuming it's visible after hover)
+        WebElement reloadButton = driver.findElement(By.linkText("Reload"));
+
+        // Click the Reload button
+        reloadButton.click();
+	}
+	 
+	@Test
+	public void IFrameExample() { 
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); 
+		driver.switchTo().frame("courses-iframe");
+
+		 
+		WebElement jobSupportLink = driver.findElement(By.linkText("Job Support"));
+		jobSupportLink.click();
+        
+		
+		WebElement paragraph = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='text'])[1]")));
+        System.out.println(paragraph.getText());
+        
+	}
+
 }
+
