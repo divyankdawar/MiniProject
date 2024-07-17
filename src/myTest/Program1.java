@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
@@ -24,7 +25,7 @@ public class Program1 {
 	
 
 
-	@BeforeMethod
+	@BeforeTest
 	public void setUp()
 	{
 		System.setProperty("webdriver.chrome.driver","\"E:\\Canada Preparation\\Chrome & Gecko Driver\\chromedriver_win32\\chromedriver.exe");
@@ -36,13 +37,13 @@ public class Program1 {
 
 	}
 	
-	@Test
+	@Test (priority = 0, alwaysRun = true)
 	public void radioButton() { 
 		//Radio Button Example
 		driver.findElement(By.cssSelector("input[value='radio1']")).click();
 
 	}
-	@Test
+	@Test(priority =1)
 	public void suggestionClass() {
 		//Suggestion Class Example
 		WebElement suggestionInput = driver.findElement(By.id("autocomplete"));
@@ -63,7 +64,7 @@ public class Program1 {
 		}
 	}
 
-	@Test
+	@Test(priority =2)
 	// Select Class Example
 	public void dropdownExample() {
 		WebElement dropdownElement = driver.findElement(By.cssSelector("select#dropdown-class-example"));
@@ -75,13 +76,13 @@ public class Program1 {
 
 	}
 
-	@Test
+	@Test(priority =3)
 	// CheckBox Example
 	public void checkboxExample() {
 		WebElement checkbox = driver.findElement(By.cssSelector("input[id='checkBoxOption1']"));
 		checkbox.click();
 	}
-	@Test
+	@Test(priority =4)
 	// switch to New Window Example
 	public void newWindow() {
 		driver.findElement(By.xpath("//button[@id='openwindow']")).click();
@@ -103,7 +104,7 @@ public class Program1 {
 
 
 	//Switching Tab Example 
-	@Test
+	@Test(priority =5)
 	public void switchTabExample() {
 
 
@@ -128,7 +129,7 @@ public class Program1 {
 		System.out.println(contactInfo.getText());
 	}
 
-	@Test
+	@Test(priority =6)
 	public void SwitchToAlertExample() throws InterruptedException {
 
 		driver.findElement(By.cssSelector("input#name.inputs")).sendKeys("Divyank Dawar");
@@ -149,7 +150,7 @@ public class Program1 {
 
 	}
 
-	@Test
+	@Test(priority =7)
 	public void webTable() { 
 
 		// Whenever you have to work with webtables you have to find the patters
@@ -197,7 +198,7 @@ public class Program1 {
 	}
 
 
-	@Test
+	@Test(priority =8)
 
 	public void mouseHover() throws InterruptedException {
 
@@ -223,7 +224,7 @@ public class Program1 {
         reloadButton.click();
 	}
 	 
-	@Test
+	@Test(priority =9)
 	public void IFrameExample() { 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); 
 		driver.switchTo().frame("courses-iframe");
@@ -237,6 +238,8 @@ public class Program1 {
         System.out.println(paragraph.getText());
         
 	}
+	
+	
 
 }
 
