@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 public class Program1 {
 
 	WebDriver driver = new ChromeDriver();
-	
+
 
 
 	@BeforeTest
@@ -30,13 +30,13 @@ public class Program1 {
 	{
 		System.setProperty("webdriver.chrome.driver","\"E:\\Canada Preparation\\Chrome & Gecko Driver\\chromedriver_win32\\chromedriver.exe");
 		String baseUrl = "https://rahulshettyacademy.com/AutomationPractice/";
-        
+
 		driver.get(baseUrl);
 		driver.manage().window().maximize();
-		
+
 
 	}
-	
+
 	@Test (priority = 0, alwaysRun = true)
 	public void radioButton() { 
 		//Radio Button Example
@@ -57,6 +57,7 @@ public class Program1 {
 		System.out.println(suggestionList);
 		for(WebElement suggestion : suggestionList) {
 			if(suggestion.getText().equals("United States (USA)")) {
+
 				suggestion.click();
 				break;
 
@@ -72,6 +73,7 @@ public class Program1 {
 		// Select option 2 by value, text, or index
 		// By value
 		dropdown.selectByValue("option2");
+
 
 
 	}
@@ -119,7 +121,8 @@ public class Program1 {
 		driver.findElement(By.xpath("(//a[contains(text(),'Contact')])[1]")).click();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Below is the way to scroll No1
-		// js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//div[@class='cont']//p[contains(text(),'Siri Balaji Residency, Road no 2, GaddiAnnaram, Hyderabad, India.')]")));
+		//		js.executeScript("arguments[0].scrollIntoView(true);",
+		//		driver.findElement(By.xpath("//div[@class='cont']//p[contains(text(),'Siri Balaji Residency, Road no 2, GaddiAnnaram, Hyderabad, India.')]")));
 		WebElement contactInfo = driver.findElement(By.xpath("//div[@class='cont']//p[contains(text(),'Siri Balaji Residency, Road no 2, GaddiAnnaram, Hyderabad, India.')]"));
 
 		Long pageHeight = (Long) js.executeScript("return document.body.scrollHeight");
@@ -128,6 +131,23 @@ public class Program1 {
 		js.executeScript("window.scrollTo(0, " + (pageHeight / 4) + ")");
 		System.out.println(contactInfo.getText());
 	}
+
+	@Test
+	public void scrollAndClickBrokenLink() {
+		// Find the "Broken Link" element
+		WebElement brokenLink = driver.findElement(By.linkText("Broken Link"));
+
+		/*JavascriptExecutor is used to scroll the page. The method scrollIntoView(true) ensures that the element (in this case, "Broken Link") is scrolled into the visible area of the browser window.
+        js.executeScript("arguments[0].scrollIntoView(true);", brokenLink); will scroll the page down until the "Broken Link" is visible.
+		 */        
+		// Use JavaScriptExecutor to scroll down to the element
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", brokenLink);
+
+		// Click the "Broken Link"	
+		brokenLink.click();
+	}
+
 
 	@Test(priority =6)
 	public void SwitchToAlertExample() throws InterruptedException {
@@ -203,44 +223,45 @@ public class Program1 {
 	public void mouseHover() throws InterruptedException {
 
 
-        Actions actions = new Actions(driver);
+		Actions actions = new Actions(driver);
 
-        // Find the Mouse Hover button using its locator
-        WebElement mouseHoverButton = driver.findElement(By.id("mousehover"));
+		// Find the Mouse Hover button using its locator
+		WebElement mouseHoverButton = driver.findElement(By.id("mousehover"));
 
-        // Perform a mouse hover action on the Mouse Hover button
-        actions.moveToElement(mouseHoverButton).perform();
+		// Perform a mouse hover action on the Mouse Hover button
+		actions.moveToElement(mouseHoverButton).perform();
+		
 
-        // Perform the top Link button 
-        WebElement topLink = driver.findElement(By.xpath("//a[text()='Top']"));
+		// Perform the top Link button 
+		WebElement topLink = driver.findElement(By.xpath("//a[text()='Top']"));
 		topLink.click();
 
 		actions.moveToElement(mouseHoverButton).perform();
 
-        // Find the Reload button using its locator (assuming it's visible after hover)
-        WebElement reloadButton = driver.findElement(By.linkText("Reload"));
+		// Find the Reload button using its locator (assuming it's visible after hover)
+		WebElement reloadButton = driver.findElement(By.linkText("Reload"));
 
-        // Click the Reload button
-        reloadButton.click();
+		// Click the Reload button
+		reloadButton.click();
 	}
-	 
+
 	@Test(priority =9)
 	public void IFrameExample() { 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); 
 		driver.switchTo().frame("courses-iframe");
 
-		 
+
 		WebElement jobSupportLink = driver.findElement(By.linkText("Job Support"));
 		jobSupportLink.click();
-        
-		
+
+
 		WebElement paragraph = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='text'])[1]")));
-        System.out.println(paragraph.getText());
-        
+		System.out.println(paragraph.getText());
+
 	}
-	
+
 	// Just to Test Commit
-	
+
 
 }
 
