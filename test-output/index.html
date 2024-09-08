@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="myTest.Program1" class="method navigator-link" hash-for-method="webTable">webTable</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="myTest.Program1" class="method navigator-link" hash-for-method="scrollAndClickBrokenLink">scrollAndClickBrokenLink</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -127,9 +127,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="webTable">
-                  </a> <!-- webTable -->
-                  <span class="method-name">webTable</span>
+                  <a name="scrollAndClickBrokenLink">
+                  </a> <!-- scrollAndClickBrokenLink -->
+                  <span class="method-name">scrollAndClickBrokenLink</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -146,7 +146,11 @@
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;SingelTestCase&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;myTest.Program1&quot;/&gt;
+      &lt;class name=&quot;myTest.Program1&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;scrollAndClickBrokenLink&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- myTest.Program1 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- SingelTestCase --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -188,14 +192,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'webTable')
+data.setCell(0, 1, 'scrollAndClickBrokenLink')
 data.setCell(0, 2, 'myTest.Program1')
-data.setCell(0, 3, 722);
+data.setCell(0, 3, 1191);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 722 ms</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -210,9 +214,34 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">10 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">myTest.Program1</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">radioButton</span>
+                <br/>
+                <span class="ignored-method-name">mouseHover</span>
+                <br/>
+                <span class="ignored-method-name">SwitchToAlertExample</span>
+                <br/>
+                <span class="ignored-method-name">checkboxExample</span>
+                <br/>
+                <span class="ignored-method-name">IFrameExample</span>
+                <br/>
+                <span class="ignored-method-name">suggestionClass</span>
+                <br/>
+                <span class="ignored-method-name">newWindow</span>
+                <br/>
+                <span class="ignored-method-name">webTable</span>
+                <br/>
+                <span class="ignored-method-name">dropdownExample</span>
+                <br/>
+                <span class="ignored-method-name">switchTabExample</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -222,13 +251,13 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">myTest.Program1</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
+              <div class="configuration-test before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- configuration-method before -->
+              </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">webTable</span>
-                <span class="method-start">2909 ms</span>
+                <span class="method-name">scrollAndClickBrokenLink</span>
+                <span class="method-start">5031 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="10" total="11" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-27T14:23:13 EDT" name="Suite" finished-at="2024-05-27T14:23:17 EDT" duration-ms="3717">
+  <suite started-at="2024-09-08T14:01:32 EDT" name="Suite" finished-at="2024-09-08T14:01:39 EDT" duration-ms="6252">
     <groups>
     </groups>
-    <test started-at="2024-05-27T14:23:13 EDT" name="SingelTestCase" finished-at="2024-05-27T14:23:17 EDT" duration-ms="3717">
+    <test started-at="2024-09-08T14:01:32 EDT" name="SingelTestCase" finished-at="2024-09-08T14:01:39 EDT" duration-ms="6252">
       <class name="myTest.Program1">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:myTest.Program1@614df0a4]" started-at="2024-05-27T14:23:13 EDT" name="setUp" finished-at="2024-05-27T14:23:16 EDT" duration-ms="2904" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:myTest.Program1@74960bfa]" started-at="2024-09-08T14:01:32 EDT" name="setUp" finished-at="2024-09-08T14:01:37 EDT" duration-ms="4968" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="webTable()[pri:0, instance:myTest.Program1@614df0a4]" started-at="2024-05-27T14:23:16 EDT" name="webTable" finished-at="2024-05-27T14:23:17 EDT" duration-ms="722" status="PASS">
+        <test-method signature="scrollAndClickBrokenLink()[pri:0, instance:myTest.Program1@74960bfa]" started-at="2024-09-08T14:01:37 EDT" name="scrollAndClickBrokenLink" finished-at="2024-09-08T14:01:39 EDT" duration-ms="1191" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- webTable -->
+        </test-method> <!-- scrollAndClickBrokenLink -->
       </class> <!-- myTest.Program1 -->
     </test> <!-- SingelTestCase -->
   </suite> <!-- Suite -->

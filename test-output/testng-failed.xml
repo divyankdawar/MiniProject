@@ -6,7 +6,7 @@
       <class name="myTest.Program1">
         <methods>
           <include name="setUp"/>
-          <include name="webTable"/>
+          <include name="IFrameExample"/>
         </methods>
       </class> <!-- myTest.Program1 -->
     </classes>
