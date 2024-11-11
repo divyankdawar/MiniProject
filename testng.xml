@@ -3,15 +3,27 @@
 <suite name="Suite">
 	<!-- I used the below code to run only a specific test case out of 50 Test 
 		Cases -->
-	<test name="SingelTestCase">
-		<classes>
-			<class name="myTest.Program1">
-			 <methods>
-				<include name="scrollAndClickBrokenLink" />
-			 </methods>
-			</class> 
-		</classes>
+	    <!-- Specific Test Case Run -->
+    <test name="SingleTestCase">
+        <classes>
+            <class name="myTest.Program1">
+                <methods>
+                    <include name="scrollAndClickBrokenLink" />
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- End of SingleTestCase Test -->
 
-	</test> <!-- Test -->
-</suite> <!-- Suite -->
+    <!-- Smoke Test Group Run -->
+    <test name="smoke">
+        <groups>
+            <run>
+                <include name="smoke" />
+            </run>
+        </groups>
+        <classes>
+            <class name="myTest.Program1" />
+        </classes>
+    </test> <!-- End of smoke Test -->
 
+</suite> <!-- End of Suite -->

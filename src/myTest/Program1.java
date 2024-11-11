@@ -1,10 +1,15 @@
 package myTest;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,28 +19,38 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 
-public class Program1 {
 
-	WebDriver driver = new ChromeDriver();
+@Listeners(CustomListeners.class)
+public class Program1 extends Base{
 
-
-
-	@BeforeTest
-	public void setUp()
-	{
-		System.setProperty("webdriver.chrome.driver","\"E:\\Canada Preparation\\Chrome & Gecko Driver\\chromedriver_win32\\chromedriver.exe");
-		String baseUrl = "https://rahulshettyacademy.com/AutomationPractice/";
-
-		driver.get(baseUrl);
-		driver.manage().window().maximize();
-
-
+	
+//This is Automation of Rahul Shetty Academy Website
+	
+		
+    @BeforeMethod
+    public void setUp() {
+    	initialization();
+    }
+	@Test
+	public void takeScreenshotTest() {
+		Assert.assertEquals(false, true);
 	}
+
+	@AfterMethod
+	public void quitMethod() {
+		driver.quit();
+	}
+
+
+
 
 	@Test (priority = 0, alwaysRun = true)
 	public void radioButton() { 
@@ -49,7 +64,11 @@ public class Program1 {
 		WebElement suggestionInput = driver.findElement(By.id("autocomplete"));
 
 		suggestionInput.sendKeys("United");
-
+        
+		//Implicit Wait Example syntax
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//Explicit Wait
+		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ui-menu-item")));
 
@@ -73,6 +92,7 @@ public class Program1 {
 		// Select option 2 by value, text, or index
 		// By value
 		dropdown.selectByValue("option2");
+		
 
 
 
@@ -119,6 +139,14 @@ public class Program1 {
 		String child = it.next();
 		driver.switchTo().window(child);
 		driver.findElement(By.xpath("(//a[contains(text(),'Contact')])[1]")).click();
+		
+		
+		/**
+		 * This is a type cast. It converts the driver object into a JavascriptExecutor type. 
+		 * Since JavascriptExecutor is an interface that the WebDriver class implements, 
+		 * this cast allows you to use JavaScript execution methods on the driver.
+		 */
+	
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Below is the way to scroll No1
 		//		js.executeScript("arguments[0].scrollIntoView(true);",
@@ -141,6 +169,7 @@ public class Program1 {
         js.executeScript("arguments[0].scrollIntoView(true);", brokenLink); will scroll the page down until the "Broken Link" is visible.
 		 */        
 		// Use JavaScriptExecutor to scroll down to the element
+	
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", brokenLink);
 
@@ -264,4 +293,8 @@ public class Program1 {
 
 
 }
+
+
+
+
 
